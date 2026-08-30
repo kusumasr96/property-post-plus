@@ -46,9 +46,11 @@ function Index() {
   useEffect(() => {
     const el = frameRef.current;
     if (!el) return;
-    const ro = new ResizeObserver(([entry]) =>
-      setScale(entry.contentRect.width / 1080),
-    );
+    const ro = new ResizeObserver((entries) => {
+      const w = entries[0]?.contentRect.width;
+      if (w) setScale(w / 1080);
+    });
+
     ro.observe(el);
     return () => ro.disconnect();
   }, [generated]);
