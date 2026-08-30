@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import heroImage from "@/assets/property-hero.jpg";
 import { BRAND, type PropertyData } from "@/lib/brand";
+import { getPropertyImage } from "@/lib/property-images";
 
 interface Props {
   data: PropertyData;
