@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import heroImage from "@/assets/property-hero.jpg";
 import { BRAND, type PropertyData } from "@/lib/brand";
+import { getPropertyImage } from "@/lib/property-images";
 
 interface Props {
   data: PropertyData;
@@ -39,7 +39,8 @@ export const PropertyPost = forwardRef<HTMLDivElement, Props>(
         {/* Property image */}
         <div className="relative h-[540px] w-full overflow-hidden bg-secondary">
           <img
-            src={heroImage}
+            key={data.property}
+            src={getPropertyImage(data.property)}
             alt="Luxury property exterior at golden hour"
             width={1080}
             height={540}
